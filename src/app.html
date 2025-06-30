@@ -1,12 +1,27 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div>%sveltekit.body%</div>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    %sveltekit.head%
+    <style>
+      body {
+        font-family:
+          "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        background-color: yellow;
+      }
+
+      h1,
+      h2,
+      h3,
+      button {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div>%sveltekit.body%</div>
+  </body>
 </html>
