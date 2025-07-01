@@ -2,6 +2,7 @@
     import ThemeProvider from "$lib/ThemeProvider.svelte";
     import ModalMatte from "$lib/ModalMatte.svelte";
     import RadioControl from "$lib/RadioControl.svelte";
+    import SliderControl from "$lib/SliderControl.svelte";
   import {
     CORE_THEME_NAMES,
     type AllThemePropertyNames,
