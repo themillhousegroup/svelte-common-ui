@@ -1,3 +1,34 @@
+# svelte-common-ui
+
+Simple components for common styling tasks in a Svelte app.
+
+## Components
+
+### `ThemeProvider`
+
+#### Example
+
+##### Usage
+```
+<ThemeProvider {allThemes} themeName={themeName} >
+    <h4>This child has been themed</h4>
+</ThemeProvider>
+```
+
+##### Setup
+`ThemeProvider` makes heavy use of types to ensure that:
+- the `themeName` belongs to `allThemes`
+- each `Theme` within `allThemes` contains all the required CSS variables
+- each CSS variable is in the form `--theme-${string}`
+
+Check the `routes/+page.svelte` file for an example that sets up 3 theme names and adds custom theme variables.
+
+
+## Demo page setup
+Follows the [SvelteKit Guide](https://svelte.dev/docs/kit/adapter-static) using the `adapter-static`.
+
+
+
 # Svelte library
 
 Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
