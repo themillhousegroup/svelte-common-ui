@@ -127,5 +127,5 @@ Go into the `package.json` and give your package the desired name through the `"
 To publish your library to [npm](https://www.npmjs.com):
 
 ```bash
-npm publish
+npm publish --provenance --access public
 ```
