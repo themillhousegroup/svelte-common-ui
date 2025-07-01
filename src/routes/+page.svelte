@@ -64,6 +64,14 @@
   const setClockStyle = (newClockStyle: ClockStyle) => {
     clockStyle = newClockStyle;
   }
+
+  export const RECORDING_DURATION_MINUTES = [15, 30, 45, 60] as const;
+  export type RecordingDuration = (typeof RECORDING_DURATION_MINUTES)[number];
+  let recordingDuration: RecordingDuration = $state(RECORDING_DURATION_MINUTES[2]);
+
+  const setRecordingDuration = (newRecordingDuration: RecordingDuration) => {
+    recordingDuration = newRecordingDuration;
+  }
 </script>
 
 <ThemeProvider {allThemes} themeName={themeName}>
@@ -100,14 +108,23 @@
 			</span>
 		{/snippet}
 		<RadioControl
-			label="Clock Style"
+			label="RadioControl demo"
 			options={CLOCK_STYLES}
 			selectedValue={clockStyle}
 			onValueChanged={setClockStyle}
 			optionLabelSnippets={[twelve, twentyFour]}
 		/>
 	</div>
-
+  <div class="demo-group">
+    <SliderControl 
+			label="SliderControl demo"
+			underLabel="(Minutes)"
+			options={RECORDING_DURATION_MINUTES}
+			selectedValue={recordingDuration}
+			onValueChanged={setRecordingDuration}
+			--width="80%"
+		/>
+	</div>
 </ThemeProvider>
 
 <style>
