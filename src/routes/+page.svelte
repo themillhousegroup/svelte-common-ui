@@ -1,5 +1,6 @@
 <script lang="ts">
     import ThemeProvider from "$lib/ThemeProvider.svelte";
+    import ModalMatte from "$lib/ModalMatte.svelte";
   import {
     CORE_THEME_NAMES,
     type AllThemePropertyNames,
@@ -46,6 +47,14 @@
   }
 
   const themeName = $derived(CUSTOM_THEME_NAMES[themeIndex])
+
+  let showModal = $state(false);
+  const displayModal = () => {
+    showModal = true;
+  }
+  const onMatteClicked = () => {
+    showModal = false;
+  }
 </script>
 
 <h1>SVELTE COMMON UI</h1>
@@ -53,15 +62,21 @@
 <h3>Themed Area: {themeName}</h3>
 
 <button onclick={rotateTheme}>Rotate Theme</button>
+<button onclick={displayModal}>Show ModalMatte</button>
 
 <ThemeProvider {allThemes} themeName={themeName} >
   <div id="theme-inner" style:height={"50%"}>
     <h4>This <tt>h4</tt> has been themed {themeName}</h4>
   </div>
+
+  {#if showModal}
+    <ModalMatte {onMatteClicked}>
+      <h4>I'm just the contents of the modal</h4>
+    </ModalMatte>
+  {/if}
 </ThemeProvider>
 
 <style>
-
   #theme-inner {
     background-color: var(--theme-background-color);
     color: var(--theme-color);
