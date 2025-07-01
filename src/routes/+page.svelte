@@ -57,7 +57,7 @@
     showModal = false;
   }
 
-  const CLOCK_STYLES = [[["TWELVE", "TWENTYFOUR"] as const;
+  const CLOCK_STYLES = ["TWELVE", "TWENTYFOUR"] as const;
   type ClockStyle = (typeof CLOCK_STYLES)[number];
   let clockStyle: ClockStyle = $state(CLOCK_STYLES[0]);
 
