@@ -19,7 +19,7 @@
   }
 </script>
 
-<div id={MATTE_ID} {onclick}>
+<div id={MATTE_ID} {onclick} role="presentation">
     {@render children()}
 </div>
 

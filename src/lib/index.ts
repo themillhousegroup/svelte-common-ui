@@ -17,7 +17,7 @@ import type {
 import {
   CORE_THEME_PROPERTY_NAMES,
   CORE_THEME_NAMES
-} from './themeing';
+} from './theming';
 
 export {
   ModalMatte,
