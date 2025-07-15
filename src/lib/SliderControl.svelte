@@ -7,7 +7,9 @@
 		selectedValue: O;
 		onValueChanged: (newValue: O) => void;
 	}
-	const uid = $props.id();
+
+	// https://svelte.dev/docs/svelte/$props#$props.id()
+	const instanceId = $props.id();
 	const { label, underLabel, options, selectedValue, onValueChanged }: Props = $props();
 	const selectedIndex = $derived(options.indexOf(selectedValue));
 
@@ -20,15 +22,17 @@
 		const newValue = options[newIndex];
 		onValueChanged(newValue); 
 	};
-	const markerId = `marker-${uid}`;
+	const inputId = `sliderControl-${instanceId}`;
+	const markerId = `marker-${instanceId}`;
 </script>
 
 <div class="sliderControl">
 	{#if label}
-		<label for="controlsRange">{label}</label>
+		<label for={inputId}>{label}</label>
 	{/if}
 
-	<input name="controlsRange" 
+	<input 
+	    id={inputId}
 		type="range" 
 		min="0" step="1" max={options.length -1} 
 		value={selectedIndex} 
@@ -67,7 +71,7 @@
 
 	datalist {
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-between;
 		color: var(--theme-color);
 		width: 100%;
 		font-size: small;
