@@ -126,6 +126,43 @@
 			--width="80%"
 		/>
 	</div>
+  <div class="demo-group">
+
+		{#snippet fifteen(selected: boolean, style?: string)}
+			<span class={`inner ${selected && 'selected'}`} {style}>
+				<h3>15</h3>
+				<h4>min</h4>
+			</span>
+		{/snippet}
+		{#snippet thirty(selected: boolean, style?: string)}
+			<span class={`inner ${selected && 'selected'}`} {style}>
+				<h3>30</h3>
+				<h4>min</h4>
+			</span>
+		{/snippet}
+		{#snippet fortyFive(selected: boolean, style?: string)}
+			<span class={`inner ${selected && 'selected'}`} {style}>
+				<h3>45</h3>
+				<h4>min</h4>
+			</span>
+		{/snippet}
+		{#snippet sixty(selected: boolean, style?: string)}
+			<span class={`inner ${selected && 'selected'}`} {style}>
+				<h3>60</h3>
+				<h4>min</h4>
+			</span>
+		{/snippet}
+
+
+    <SliderControl 
+			label="SliderControl demo with option snippets"
+			options={RECORDING_DURATION_MINUTES}
+      optionLabelSnippets={[fifteen, thirty, fortyFive, sixty]}
+			selectedValue={recordingDuration}
+			onValueChanged={setRecordingDuration}
+			--width="80%"
+		/>
+	</div>
 </ThemeProvider>
 
 <style>

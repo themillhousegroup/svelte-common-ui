@@ -19,18 +19,23 @@ import {
   CORE_THEME_NAMES
 } from './theming';
 
+import {
+  SelectableStyledSnippet
+} from './types';
+
 export {
   ModalMatte,
   RadioControl,
   SliderControl,
   ThemeProvider,
-  type CSSThemedPropertyName,
-  type ThemedPropertyNameList,
-  type CoreThemePropertyName,
-  type CorePropertyNameList,
   type AllThemePropertyNames,
   type AllThemePropertyName,
+  type CorePropertyNameList,
+  type CoreThemePropertyName,
+  type CSSThemedPropertyName,
+  type SelectableStyledSnippet,
   type Theme,
+  type ThemedPropertyNameList,
   type ThemeName,
   CORE_THEME_PROPERTY_NAMES,
   CORE_THEME_NAMES

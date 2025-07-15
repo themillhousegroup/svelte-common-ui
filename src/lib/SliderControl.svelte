@@ -4,13 +4,14 @@
 		label?: string;
 		underLabel?: string;
 		options: ReadonlyArray<O>;
+		optionLabelSnippets?: Array<SelectableStyledSnippet>;
 		selectedValue: O;
 		onValueChanged: (newValue: O) => void;
 	}
 
 	// https://svelte.dev/docs/svelte/$props#$props.id()
 	const instanceId = $props.id();
-	const { label, underLabel, options, selectedValue, onValueChanged }: Props = $props();
+	const { label, underLabel, options, optionLabelSnippets, selectedValue, onValueChanged }: Props = $props();
 	const selectedIndex = $derived(options.indexOf(selectedValue));
 
 	const onchange = (event: Event & { currentTarget: EventTarget & HTMLInputElement; }) => {
@@ -40,13 +41,22 @@
 		{onchange}
 	/>
 
-	<datalist id={markerId}>
-		{#each options as optionValue,i}
-			<option value={i}> 
-				{optionValue}
-			</option>
-		{/each}
-	</datalist>
+	{#if optionLabelSnippets}
+		<div id={markerId} class="optionLabels">
+			{#each options as optionValue,i}
+				{@render optionLabelSnippets[i](selectedIndex === i)}
+			{/each}
+		</div>
+
+	{:else}
+		<datalist id={markerId} class="optionLabels">
+			{#each options as optionValue,i}
+				<option value={i}> 
+					{optionValue}
+				</option>
+			{/each}
+		</datalist>
+	{/if}
 
 	{#if underLabel}
 		<h4>{underLabel}</h4>
@@ -64,16 +74,19 @@
 	}
 
 	input[type=range] {
-		width: 90%;
+		width: var(--width);
 		cursor: pointer;
 		background-color: var(--theme-color);	
 	}
 
-	datalist {
+	.optionLabels {
 		display: flex;
 		justify-content: space-between;
 		color: var(--theme-color);
-		width: 100%;
+		width: var(--width);	
+	}
+
+	datalist.optionLabels {
 		font-size: small;
 	}
 </style>
