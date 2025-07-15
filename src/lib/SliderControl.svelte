@@ -41,22 +41,18 @@
 		{onchange}
 	/>
 
-	{#if optionLabelSnippets}
-		<div id={markerId} class="optionLabels">
-			{#each options as optionValue,i}
+	<div id={markerId} class="optionLabels">
+		{#each options as optionValue,i}
+			{#if optionLabelSnippets}
 				{@render optionLabelSnippets[i](selectedIndex === i)}
-			{/each}
-		</div>
-
-	{:else}
-		<datalist id={markerId} class="optionLabels">
-			{#each options as optionValue,i}
-				<option value={i}> 
+			{:else}
+				<div class="marker"> 
 					{optionValue}
-				</option>
-			{/each}
-		</datalist>
-	{/if}
+				</div>
+			{/if}
+		{/each}
+	</div>
+
 
 	{#if underLabel}
 		<h4>{underLabel}</h4>
@@ -74,19 +70,31 @@
 	}
 
 	input[type=range] {
+		z-index: 10;
 		width: var(--width);
 		cursor: pointer;
 		background-color: var(--theme-color);	
 	}
 
 	.optionLabels {
+		z-index: 5;
+		position: relative;
+		top: -7px;
 		display: flex;
 		justify-content: space-between;
 		color: var(--theme-color);
-		width: var(--width);	
+		width: calc(var(--width) + 16px); /* Cater for the thumb */	
 	}
 
-	datalist.optionLabels {
-		font-size: small;
+	.marker {
+		flex: 1;
+		display:flex;
+		flex-direction: column;
+		align-items: center;
+
+		&::before {
+			content: "|";
+		}
 	}
+
 </style>
