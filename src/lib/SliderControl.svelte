@@ -41,7 +41,7 @@
 		{onchange}
 	/>
 
-	<div id={markerId} class={`optionLabels ${optionLabelSnippets ? 'snippetMode' : 'textMode'}`>
+	<div id={markerId} class={`optionLabels ${optionLabelSnippets ? 'snippetMode' : 'textMode'}`}>
 		{#each options as optionValue,i}
 			{#if optionLabelSnippets}
 				{@render optionLabelSnippets[i](selectedIndex === i)}
