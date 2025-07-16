@@ -41,7 +41,7 @@
 		{onchange}
 	/>
 
-	<div id={markerId} class="optionLabels">
+	<div id={markerId} class={`optionLabels ${optionLabelSnippets ? 'snippetMode' : 'textMode'}`>
 		{#each options as optionValue,i}
 			{#if optionLabelSnippets}
 				{@render optionLabelSnippets[i](selectedIndex === i)}
@@ -83,7 +83,15 @@
 		display: flex;
 		justify-content: space-between;
 		color: var(--theme-color);
-		width: calc(var(--width) + 16px); /* Cater for the thumb */	
+			
+
+		&.snippetMode {
+			width: 100%; /* Suspect there's a formula that could be used here */
+		}
+
+		&.textMode {
+			width: calc(var(--width) + 6px); /* Cater for the thumb */
+		}
 	}
 
 	.marker {
