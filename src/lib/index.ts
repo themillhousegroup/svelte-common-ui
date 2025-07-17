@@ -20,7 +20,7 @@ import {
 } from './theming';
 
 import {
-  SelectableStyledSnippet
+  type SelectableStyledSnippet
 } from './types';
 
 export {
