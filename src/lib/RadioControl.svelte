@@ -1,6 +1,5 @@
 <script lang="ts" generics="O">
-	import type { Snippet } from "svelte";
-    import type { SelectableStyledSnippet } from ".";
+	import type { SelectableStyledSnippet } from "./types";
 
 	type Props = {
 		label?: string;

@@ -1,5 +1,6 @@
 <script lang="ts" generics="O">
-	
+	import type { SelectableStyledSnippet } from "./types";
+
 	type Props = {
 		label?: string;
 		underLabel?: string;
