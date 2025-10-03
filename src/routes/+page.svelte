@@ -9,9 +9,10 @@
     type Theme,
     type ThemedPropertyNameList,
   } from "$lib/theming";
+  import type { ThemeName } from "$lib/theming.js";
 
   const CUSTOM_THEME_NAMES = [...CORE_THEME_NAMES, "MEDIUM"] as const;
-  type MyThemeName = (typeof CUSTOM_THEME_NAMES)[number];
+  type MyThemeName = ThemeName | (typeof CUSTOM_THEME_NAMES)[number];
 
   const CUSTOM_THEME_PROP_NAMES = [
     "--theme-border-radius",
@@ -48,7 +49,7 @@
     themeIndex = (themeIndex + 1) % CUSTOM_THEME_NAMES.length;
   }
 
-  const themeName = $derived(CUSTOM_THEME_NAMES[themeIndex])
+  const themeName: MyThemeName = $derived(CUSTOM_THEME_NAMES[themeIndex])
 
   let showModal = $state(false);
   const displayModal = () => {
@@ -67,7 +68,7 @@
   }
 
   export const RECORDING_DURATION_MINUTES = [15, 30, 45, 60] as const;
-  export type RecordingDuration = (typeof RECORDING_DURATION_MINUTES)[number];
+  type RecordingDuration = (typeof RECORDING_DURATION_MINUTES)[number];
   let recordingDuration: RecordingDuration = $state(RECORDING_DURATION_MINUTES[2]);
 
   const setRecordingDuration = (newRecordingDuration: RecordingDuration) => {
@@ -75,7 +76,7 @@
   }
 </script>
 
-<ThemeProvider {allThemes} themeName={themeName}>
+<ThemeProvider {allThemes} {themeName}>
 
 
   {#if showModal}

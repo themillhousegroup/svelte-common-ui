@@ -1,4 +1,4 @@
-<script lang="ts" generics="C extends ThemedPropertyNameList, T extends Theme<C>, N extends ThemeName">
+<script lang="ts" generics="C extends ThemedPropertyNameList, T extends Theme<C>, N extends ThemeName | TNX, TNX extends string = never">
 	import { type Theme, type ThemedPropertyNameList, type ThemeName } from "./theming";
 	import type { Snippet } from "svelte";
 
