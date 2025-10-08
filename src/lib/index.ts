@@ -12,16 +12,16 @@ import type {
   AllThemePropertyName,
   Theme,
   ThemeName
- } from './theming';
+ } from './theming.js';
 
 import {
   CORE_THEME_PROPERTY_NAMES,
   CORE_THEME_NAMES
-} from './theming';
+} from './theming.js';
 
 import {
   type SelectableStyledSnippet
-} from './types';
+} from './types.js';
 
 export {
   ModalMatte,

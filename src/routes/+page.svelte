@@ -8,11 +8,10 @@
     type AllThemePropertyNames,
     type Theme,
     type ThemedPropertyNameList,
-  } from "$lib/theming";
-  import type { ThemeName } from "$lib/theming.js";
+  } from "$lib/theming.js";
 
   const CUSTOM_THEME_NAMES = [...CORE_THEME_NAMES, "MEDIUM"] as const;
-  type MyThemeName = ThemeName | (typeof CUSTOM_THEME_NAMES)[number];
+  type MyThemeName = typeof CUSTOM_THEME_NAMES[number];
 
   const CUSTOM_THEME_PROP_NAMES = [
     "--theme-border-radius",
