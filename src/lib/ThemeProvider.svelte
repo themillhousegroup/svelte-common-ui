@@ -1,10 +1,10 @@
-<script lang="ts" generics="C extends ThemedPropertyNameList, T extends Theme<C>, N extends ThemeName | TNX, TNX extends string = never">
-	import { type Theme, type ThemedPropertyNameList, type ThemeName } from "./theming.js";
+<script lang="ts" generics="C extends ThemedPropertyNameList, T extends Theme<C>, XTN extends Array<string> = []">
+	import { type Theme, type ThemedPropertyNameList, type ThemeName, type ThemeSet, type OneThemeName } from "./theming.js";
 	import type { Snippet } from "svelte";
 
   type Props = {
-    allThemes: Record<N, T>, 
-    themeName: N;
+    allThemes: ThemeSet<C, T, XTN>, 
+    themeName: OneThemeName<XTN>
     children: Snippet;
   };
   

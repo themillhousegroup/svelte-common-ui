@@ -8,6 +8,7 @@
     type AllThemePropertyNames,
     type Theme,
     type ThemedPropertyNameList,
+    type ThemeSet
   } from "$lib/theming.js";
 
   const CUSTOM_THEME_NAMES = [...CORE_THEME_NAMES, "MEDIUM"] as const;
@@ -18,7 +19,7 @@
   ] satisfies ThemedPropertyNameList;
   type MyPropNames = AllThemePropertyNames<typeof CUSTOM_THEME_PROP_NAMES>;
 
-  const allThemes: Record<MyThemeName, Theme<MyPropNames>> = {
+  const allThemes: ThemeSet<MyPropNames, Theme<MyPropNames>, ['MEDIUM']> = {
     LIGHT: {
       "--theme-background-color": "white",
       "--theme-matte-color": "#d0d0f0b0",

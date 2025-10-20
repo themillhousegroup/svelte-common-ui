@@ -10,8 +10,11 @@ import type {
   CorePropertyNameList,
   AllThemePropertyNames,
   AllThemePropertyName,
+  AllThemeNames,
+  OneThemeName,
   Theme,
-  ThemeName
+  ThemeName,
+  ThemeSet,
  } from './theming.js';
 
 import {
@@ -37,6 +40,9 @@ export {
   type Theme,
   type ThemedPropertyNameList,
   type ThemeName,
+  type AllThemeNames,
+  type OneThemeName,
+  type ThemeSet,
   CORE_THEME_PROPERTY_NAMES,
   CORE_THEME_NAMES
 };
