@@ -1,4 +1,5 @@
 <script lang="ts">
+    import highlightingScroller from "$lib/highlightingScroller.svelte";
     import ThemeProvider from "$lib/ThemeProvider.svelte";
     import ModalMatte from "$lib/ModalMatte.svelte";
     import RadioControl from "$lib/RadioControl.svelte";
@@ -74,6 +75,8 @@
   const setRecordingDuration = (newRecordingDuration: RecordingDuration) => {
     recordingDuration = newRecordingDuration;
   }
+
+  const theList = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"];
 </script>
 
 <ThemeProvider {allThemes} {themeName}>
@@ -96,37 +99,37 @@
     <h4>This <tt>h4</tt> has been themed {themeName}</h4>
   </div>
 
-<div class="demo-group">
-		{#snippet twelve(selected: boolean, style?: string)}
-			<span class={`inner ${selected && 'selected'}`} {style}>
-				<h3>12-hour</h3>
-				<h4>e.g. 9:30pm</h4>
-			</span>
-		{/snippet}
-		{#snippet twentyFour(selected: boolean, style?: string)}
-			<span class={`inner ${selected && 'selected'}`} {style}>
-				<h3>24-hour</h3>
-				<h4>e.g. 21:30</h4>
-			</span>
-		{/snippet}
-		<RadioControl
-			label="RadioControl demo"
-			options={CLOCK_STYLES}
-			selectedValue={clockStyle}
-			onValueChanged={setClockStyle}
-			optionLabelSnippets={[twelve, twentyFour]}
-		/>
-	</div>
+  <div class="demo-group">
+      {#snippet twelve(selected: boolean, style?: string)}
+        <span class={`inner ${selected && 'selected'}`} {style}>
+          <h3>12-hour</h3>
+          <h4>e.g. 9:30pm</h4>
+        </span>
+      {/snippet}
+      {#snippet twentyFour(selected: boolean, style?: string)}
+        <span class={`inner ${selected && 'selected'}`} {style}>
+          <h3>24-hour</h3>
+          <h4>e.g. 21:30</h4>
+        </span>
+      {/snippet}
+      <RadioControl
+        label="RadioControl demo"
+        options={CLOCK_STYLES}
+        selectedValue={clockStyle}
+        onValueChanged={setClockStyle}
+        optionLabelSnippets={[twelve, twentyFour]}
+      />
+  </div>
   <div class="demo-group">
     <SliderControl 
-			label="SliderControl demo"
-			underLabel="(Minutes)"
-			options={RECORDING_DURATION_MINUTES}
-			selectedValue={recordingDuration}
-			onValueChanged={setRecordingDuration}
-			--width="80%"
-		/>
-	</div>
+      label="SliderControl demo"
+      underLabel="(Minutes)"
+      options={RECORDING_DURATION_MINUTES}
+      selectedValue={recordingDuration}
+      onValueChanged={setRecordingDuration}
+      --width="80%"
+    />
+  </div>
   <div class="demo-group">
 
 		{#snippet fifteen(selected: boolean, style?: string)}
@@ -164,6 +167,16 @@
 			--width="80%"
 		/>
 	</div>
+
+  <div class="demo-group" style="height: 12em">
+    <HighlightingScroller items={theList}>
+      {#snippet itemRenderingSnippet(item: string, selected: boolean, style?: string)}
+        <div class={`inner ${selected ? 'selected': 'not-selected'}`}>
+          {item} - selected {selected} 
+        </div>
+      {/snippet}	
+	  </HighlightingScroller>
+  </div>
 </ThemeProvider>
 
 <style>

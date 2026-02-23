@@ -1,8 +1,10 @@
 // Reexport your entry components here
+import HighlightingScroller from './HighlightingScroller.svelte';
 import ModalMatte from './ModalMatte.svelte';
 import RadioControl from './RadioControl.svelte';
 import SliderControl from './SliderControl.svelte';
 import ThemeProvider from './ThemeProvider.svelte';
+
 import type { 
   CSSThemedPropertyName,
   ThemedPropertyNameList,
@@ -27,6 +29,7 @@ import {
 } from './types.js';
 
 export {
+  HighlightingScroller,
   ModalMatte,
   RadioControl,
   SliderControl,
