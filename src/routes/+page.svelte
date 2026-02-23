@@ -168,10 +168,11 @@
 		/>
 	</div>
 
-  <div class="demo-group" style="height: 12em">
+  <div class="demo-group scroller-outer">
+    <h3>HighlightingScroller</h3>
     <HighlightingScroller items={theList}>
       {#snippet itemRenderingSnippet(item: string, selected: boolean, style?: string)}
-        <div class={`inner ${selected ? 'selected': 'not-selected'}`}>
+        <div class={`scroller-listItem ${selected ? 'selected': 'not-selected'}`}>
           {item} - selected {selected} 
         </div>
       {/snippet}	
@@ -205,7 +206,25 @@
 		flex-direction: column;
 		width: 100%;
 		align-items: center;
+    margin: 1em;
+    border-top 1px solid var(--theme-border-color);
 	}
+
+  .scroller-outer {
+    height: 12em; 
+    border: 1px solid var(--theme-border-color);
+  }
+
+  .scroller-listItem {
+    background-color: var(--theme-background-color);
+    height: 8em;
+    color: var(--theme-color);
+    border: 1px solid var(--theme-border-color);
+
+    &.selected {
+      font-weight:bold;
+    }
+  }
 
 	.inner {
 		display: flex;
