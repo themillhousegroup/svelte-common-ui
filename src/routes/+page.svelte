@@ -1,5 +1,5 @@
 <script lang="ts">
-    import highlightingScroller from "$lib/HighlightingScroller.svelte";
+    import HighlightingScroller from "$lib/HighlightingScroller.svelte";
     import ThemeProvider from "$lib/ThemeProvider.svelte";
     import ModalMatte from "$lib/ModalMatte.svelte";
     import RadioControl from "$lib/RadioControl.svelte";
