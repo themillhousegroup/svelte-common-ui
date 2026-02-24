@@ -100,6 +100,7 @@
   </div>
 
   <div class="demo-group">
+    <h3>RadioControl</h3>
       {#snippet twelve(selected: boolean, style?: string)}
         <span class={`inner ${selected && 'selected'}`} {style}>
           <h3>12-hour</h3>
@@ -121,6 +122,7 @@
       />
   </div>
   <div class="demo-group">
+    <h3>SliderControl</h3>
     <SliderControl 
       label="SliderControl demo"
       underLabel="(Minutes)"
@@ -131,7 +133,7 @@
     />
   </div>
   <div class="demo-group">
-
+  <h3>SliderControl</h3>
 		{#snippet fifteen(selected: boolean, style?: string)}
 			<span class={`inner ${selected && 'selected'}`} {style}>
 				<h3>15</h3>
@@ -189,6 +191,13 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  h3 {
+    background-color: var(--theme-background-color);
+    color: var(--theme-color);
+    padding: 8px;
+  }
+
   h4 {
     background-color: var(--theme-background-color);
     border-width: 1px;
